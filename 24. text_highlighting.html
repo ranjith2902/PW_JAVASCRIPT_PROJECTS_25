@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24. text_highlighting</title>
+    <style>
+        .highlighted-word {
+  background-color: yellow;
+}
+
+    </style>
+
+</head>
+<body>
+    <p id="my-paragraph">This is a sample paragraph with some long words like "highlighted" and "background".</p>
+
+        <script>
+            // Get the paragraph element by its ID
+const myParagraph = document.getElementById("my-paragraph");
+
+// Split the text of the paragraph into an array of words
+const words = myParagraph.textContent.split(" ");
+
+// Loop through all words in the array
+for (let i = 0; i < words.length; i++) {
+  const word = words[i];
+  
+  // Check if the word is greater than 8 characters
+  if (word.length > 8) {
+    // Create a new span element to wrap the word with a yellow background color
+    const highlightedWord = document.createElement("span");
+    highlightedWord.textContent = word;
+    highlightedWord.classList.add("highlighted-word"); // Add the CSS class
+    
+    // Replace the original word with the new span element
+    words[i] = highlightedWord.outerHTML;
+  }
+}
+
+// Join the array of words back into a string and set it as the new content of the paragraph
+myParagraph.innerHTML = words.join(" ");
+
+        </script>
+</body>
+</html>

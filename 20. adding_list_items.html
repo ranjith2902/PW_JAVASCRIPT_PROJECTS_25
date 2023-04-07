@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dynamic List Example</title>
+	<style>
+        /* Some basic styles to make the page look decent */
+body {
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+#add-btn {
+	margin: 20px;
+	padding: 10px;
+	font-size: 16px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+    </style>
+</head>
+<body>
+	<h1>PW WHAT WE'LL LEARN</h1>
+	<button id="add-btn">Add Item</button>
+	<ul id="list-container"></ul>
+
+	<script>
+        // Define the list of items
+const items = [
+"HTML and Semantics", 
+"Starting with CSS",
+"Working Template",
+"Mobile responsive webpages",
+"Grid and Flex-box in CSS",
+"Projects using HTML & CSS",
+"Version Control and Git",
+"Getting Started with JavaScript",
+"Advance JavaScript",
+"Working with DOM",
+"Making Projects using HTML, CSS and JavaScript",
+"Understanding Fundamental of Computer Science",
+"Getting Started with Database",
+"Understanding the Database",
+"Starting with NodeJS and Express",
+"Understanding React and its Fundamentals",
+"Understanding Hooks and Routers",
+"Starting and Completing Full Fledge Projects"];
+// Get references to the button and list container elements
+const addButton = document.getElementById('add-btn');
+const listContainer = document.getElementById('list-container');
+
+// Initialize a variable to keep track of which item we're currently adding
+let currentItemIndex = 0;
+
+// Define a function to add the next item to the list
+function addItemToList() {
+	// Check if there are any more items to add
+	if (currentItemIndex >= items.length) {
+		// If not, display a message and return
+		alert('All items have been added!');
+		return;
+	}
+
+	// Get the next item from the array
+	const nextItem = items[currentItemIndex];
+
+	// Create a new list item element and add the text to it
+	const newItem = document.createElement('li');
+	newItem.innerText = nextItem;
+
+	// Add the new item to the list container
+	listContainer.appendChild(newItem);
+
+	// Increment the currentItemIndex variable to point to the next item
+	currentItemIndex++;
+}
+
+// Add an event listener to the button to call the addItemToList function when clicked
+addButton.addEventListener('click', addItemToList);
+
+    </script>
+</body>
+</html>

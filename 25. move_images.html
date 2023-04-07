@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Move Image with Arrow Keys</title>
+	<style>
+		#container {
+			position: relative;
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+		}
+
+		#image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50px;
+			height: 50px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="image"></div>
+	</div>
+
+	<script> // get the image element
+        const image = document.getElementById("image");
+        
+        // define the initial position of the image
+        let xPos = 0;
+        let yPos = 0;
+        
+        // define the amount of pixels the image moves with each arrow key press
+        const step = 10;
+        
+        // listen for keydown events on the document
+        document.addEventListener("keydown", function(event) {
+            // get the keyCode of the pressed key
+            const keyCode = event.keyCode;
+        
+            // update the position of the image based on the pressed key
+            if (keyCode === 37) { // left arrow
+                xPos -= step;
+            } else if (keyCode === 38) { // up arrow
+                yPos -= step;
+            } else if (keyCode === 39) { // right arrow
+                xPos += step;
+            } else if (keyCode === 40) { // down arrow
+                yPos += step;
+            }
+        
+            // update the position of the image on the screen
+            image.style.left = xPos + "px";
+            image.style.top = yPos + "px";
+        });
+        </script>
+</body>
+</html>

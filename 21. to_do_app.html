@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO App</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#todo-container {
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#todo-input {
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+#add-button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#add-button:hover {
+  background-color: #3e8e41;
+}
+
+li {
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>TODO List</h1>
+    <div id="todo-container">
+      <input type="text" id="todo-input" placeholder="Add a new task...">
+      <button id="add-button">Add</button>
+      <ul id="todo-list">
+      </ul>
+    </div>
+    <script> 
+    const todoInput = document.getElementById('todo-input');
+const addButton = document.getElementById('add-button');
+const todoList = document.getElementById('todo-list');
+
+addButton.addEventListener('click', function() {
+  const todoText = todoInput.value;
+  if (todoText === '') {
+    return;
+  }
+  const todoItem = document.createElement('li');
+  todoItem.innerText = todoText;
+  todoList.appendChild(todoItem);
+  todoInput.value = '';
+});
+
+    </script>
+  </body>
+</html>

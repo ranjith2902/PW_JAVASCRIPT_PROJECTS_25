@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Change Background Color Button</title>
+    <style>
+      body {
+        background-color: white;
+      }
+      button {
+        font-size: 1em;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        border: none;
+        color: white;
+        background-color: #4CAF50;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click the button to change the background color of the page</h1>
+    <button onclick="changeBackgroundColor()">Change Color</button>
+
+    <script>
+      function changeBackgroundColor() {
+        // Define an array of colors
+        var colors = ["#FF5733", "#DAF7A6", "#FFC300", "#581845", "#F1948A", "#3498DB", "#FF7F50", "#FFE4C4"];
+
+        // Get a random color from the array
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+        // Set the background color of the page to the random color
+        document.body.style.backgroundColor = randomColor;
+      }
+    </script>
+  </body>
+</html>
